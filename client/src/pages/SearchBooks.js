@@ -74,10 +74,16 @@ const SearchBooks = () => {
         variables: { input: bookToSave }
       });
 
+      let bookIndex = data.saveBook.savedBooks.length - 1;
+      console.log(bookIndex);
+
       console.log(data);
+      console.log(data.saveBook.savedBooks[bookIndex].bookId);
+
+      let saveBookId = data.saveBook.savedBooks[bookIndex].bookId
 
       // if book successfully saves to user's account, save book id to state
-      setSavedBookIds([...savedBookIds, data.bookId]);
+      setSavedBookIds([...savedBookIds, saveBookId]);
     } catch (err) {
       console.error(err);
     }
