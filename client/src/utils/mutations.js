@@ -13,7 +13,6 @@ export const LOGIN_USER = gql`
             title
             authors
             description
-            link
             image
         }
       }
@@ -34,7 +33,6 @@ export const ADD_USER = gql`
             title
             authors
             description
-            link
             image
         }
       }
@@ -42,10 +40,29 @@ export const ADD_USER = gql`
   }
 `;
 
+// export const SAVE_BOOK = gql`
+//   mutation saveBook($input: SaveBookInput) {
+//     saveBook(input: $input) {
+//       user {
+//         _id
+//         username
+//         bookCount
+//         savedBooks {
+//             bookId
+//             title
+//             authors
+//             description
+//             link
+//             image
+//         }
+//       }
+//     }
+//   }
+// `;
+
 export const SAVE_BOOK = gql`
   mutation saveBook($input: SaveBookInput) {
     saveBook(input: $input) {
-      user {
         _id
         username
         bookCount
@@ -54,12 +71,10 @@ export const SAVE_BOOK = gql`
             title
             authors
             description
-            link
             image
         }
       }
     }
-  }
 `;
 
 export const REMOVE_BOOK = gql`
