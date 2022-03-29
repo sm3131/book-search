@@ -60,7 +60,6 @@ const SearchBooks = () => {
   const handleSaveBook = async (bookId) => {
     // find the book in `searchedBooks` state by the matching id
     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
-    console.log(bookToSave);
     
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -75,10 +74,6 @@ const SearchBooks = () => {
       });
 
       let bookIndex = data.saveBook.savedBooks.length - 1;
-      console.log(bookIndex);
-
-      console.log(data);
-      console.log(data.saveBook.savedBooks[bookIndex].bookId);
 
       let saveBookId = data.saveBook.savedBooks[bookIndex].bookId
 
@@ -117,6 +112,7 @@ const SearchBooks = () => {
       </Jumbotron>
 
       <Container>
+      {error && <span className="ml-2">Something went wrong...</span>}
         <h2>
           {searchedBooks.length
             ? `Viewing ${searchedBooks.length} results:`
